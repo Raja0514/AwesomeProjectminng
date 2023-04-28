@@ -7,11 +7,8 @@ import {Metstruckplod} from './src/models';
 
 const App1 = () => {
   const [showDropDown, setShowDropDown] = useState(false);
-
   const [showDropDown1, setShowDropDown1] = useState(false);
-
   const [showDropDown2, setShowDropDown2] = useState(false);
-
   const [showDropDown3, setShowDropDown3] = useState(false);
 
   const [truck, setTruck] = useState('');
