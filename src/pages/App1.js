@@ -1,14 +1,18 @@
-import {Surface, TextInput, Button, Text} from 'react-native-paper';
+import {Surface, TextInput, Button} from 'react-native-paper';
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View, ScrollView, Alert} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 import {DataStore} from 'aws-amplify';
-import {Metstruckplod} from './src/models';
+import {Metstruckplod} from '../models';
 
 const App1 = () => {
+
   const [showDropDown, setShowDropDown] = useState(false);
+
   const [showDropDown1, setShowDropDown1] = useState(false);
+
   const [showDropDown2, setShowDropDown2] = useState(false);
+  
   const [showDropDown3, setShowDropDown3] = useState(false);
 
   const [truck, setTruck] = useState('');
@@ -159,7 +163,7 @@ const App1 = () => {
   return (
     <>
       <Surface style={styles.containerStyle}>
-        <SafeAreaView style={styles.safeContainerStyle}>
+        <SafeAreaView>
           <ScrollView style={styles.scrollView}>
             <DropDown
               label={'TruckNumber'}
@@ -235,15 +239,13 @@ const App1 = () => {
             />
             <View style={styles.spacerStyle} />
 
-            <View style={styles.spacerStyle} />
-
             <Button
               mode={'outlined'}
               textColor={'black'}
               uppercase={true}
               style={{margin: 10, padding: 5, backgroundColor: 'white'}}
               onPress={onClick}>
-              SEND
+              synchronization
             </Button>
           </ScrollView>
         </SafeAreaView>
@@ -257,18 +259,29 @@ export default App1;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#2c2c54',
+    backgroundColor: '#A68F97',
     justifyContent: 'center',
     padding: 10,
+    margin: 10,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+
+    elevation: 17,
   },
   spacerStyle: {
-    marginBottom: 25,
+    marginBottom: 15,
   },
   safeContainerStyle: {
-    backgroundColor: 'white',
-    padding: 10,
-    marginTop: 10,
-    borderRadius: 15,
+    backgroundColor: 'red',
+    padding: 0,
+    marginTop: 0,
+    borderRadius: 5,
   },
   scrollView: {
     marginHorizontal: 20,

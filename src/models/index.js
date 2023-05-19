@@ -4,8 +4,17 @@ import { schema } from './schema';
 
 
 
-const { Metstruckplod } = initSchema(schema);
+const { Numberofloads, Reamers, Couplings, Shanks, Steels, Bits, Developmentdrilling, Loadinglocatins, Prestart, Metstruckplod } = initSchema(schema);
 
 export {
+  Numberofloads,
+  Reamers,
+  Couplings,
+  Shanks,
+  Steels,
+  Bits,
+  Developmentdrilling,
+  Loadinglocatins,
+  Prestart,
   Metstruckplod
 };

@@ -23,8 +23,8 @@ const Signup = ({formData, setformData}) => {
 
             <TextInput
               placeholder="Engine Hours in EOS"
-              value={formData.enginehourseos}
-              onChangeText={enginehourseos => setformData({...formData,enginehourseos})}
+              value={formData.enginehoursos}
+              onChangeText={enginehoursos => setformData({...formData,enginehoursos})}
               mode="outlined"
               keyboardType={'numeric'}
             />
@@ -42,12 +42,23 @@ export default Signup;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: '#2c2c54',
-    marginTop:85,
+    backgroundColor: '#A68F97',
+    marginTop:5,
+    margin:10,
+    borderRadius:10,
 
     padding: 20,
     paddingTop: 30,
     paddingBottom: 30,
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 8,
+},
+shadowOpacity: 0.46,
+shadowRadius: 11.14,
+
+elevation: 17,
   },
   spacerStyle: {
     marginBottom: 25,

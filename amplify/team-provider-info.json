@@ -14,6 +14,15 @@
     "categories": {
       "api": {
         "awesomeproject": {}
+      },
+      "auth": {
+        "AwesomeProject": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d18rtmsoh46uel",
+          "type": "manual"
+        }
       }
     }
   }

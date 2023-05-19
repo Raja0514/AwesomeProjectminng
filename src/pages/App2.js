@@ -9,6 +9,11 @@ import {SafeAreaView, ScrollView, StyleSheet, View, Alert} from 'react-native';
 
 import DropDown from 'react-native-paper-dropdown';
 
+import {DataStore} from 'aws-amplify';
+
+import {Loadinglocatins} from '../models';
+
+
 const App2 = () => {
   const [showDropDown, setShowDropDown] = useState(false);
 
@@ -91,13 +96,47 @@ const App2 = () => {
     {label: 'Low grade', value: 'low grade'},
   ];
 
-  const insertvalue = () => {
-    return Alert.alert('Loading Locations Submitted.....');
-  };
+  // const insertvalue = () => {
+  //   return Alert.alert('Loading Locations Submitted.....');
+  // };
+
+  // fromlocation: String!
+  // development: String
+  // loadinglocation: String
+  // fromstockpile: String
+  // toromfinger: String
+  // bog: String
+
+  async function onClick() {
+    const check = await DataStore.save(
+      new Loadinglocatins({
+        fromlocation:location,
+        development: sd,
+        loadinglocation:loading,
+        fromstockpile:stockpile,
+        toromfinger:romfinger,
+        bog:material,
+        
+      }),
+    );
+
+    console.log(check);
+
+    Alert.alert('Loading locations data are submitted...');
+
+    setLocation('');
+    setsd('');
+    setLoading('');
+    setStockpile('');
+    setRomfinger('');
+    setMaterial('');
+    
+  }
+
 
   return (
     <Surface style={styles.containerStyle}>
-      <SafeAreaView style={styles.safeContainerStyle}>
+      <SafeAreaView >
         <ScrollView>
           <DropDown
             label={'From Location'}
@@ -175,12 +214,13 @@ const App2 = () => {
             mode="outlined"
             uppercase="true"
             textColor={'black'}
-            style={{margin: 10, padding: 5}}
-            onPress={insertvalue}>
-            Submit
+            
+            style={{margin: 10, padding: 5, backgroundColor: 'white'}}
+            onPress={onClick}>
+            synchronization
           </Button>
           <View style={styles.spacerStyle} />
-          <View style={styles.spacerStyle} />
+          
         </ScrollView>
       </SafeAreaView>
     </Surface>
@@ -192,20 +232,25 @@ export default App2;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#2c2c54',
+    backgroundColor: '#A68F97',
     justifyContent: 'center',
+    margin:10,
+    padding: 10,
+    borderRadius:10,
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 8,
+},
+shadowOpacity: 0.46,
+shadowRadius: 11.14,
+
+elevation: 17,
   },
 
   spacerStyle: {
-    marginBottom: 20,
+    marginBottom: 15,
   },
 
-  safeContainerStyle: {
-    margin: 10,
-    marginTop: 10,
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    padding: 30,
-    borderRadius: 15,
-  },
+  
 });

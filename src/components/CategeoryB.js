@@ -25,7 +25,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Gauges Warning Light</Text>
+          <Text style={{ margin: 5,color:'white'}}>Gauges Warning Light</Text>
           <CheckBox
             value={formData.mirrors}
             onValueChange={value =>
@@ -35,7 +35,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Mirrors</Text>
+          <Text style={{ margin: 5,color:'white'}}>Mirrors</Text>
         </View>
 
         <View style={styles.checkboxWrapper}>
@@ -48,7 +48,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Drive Belt Tensions</Text>
+          <Text style={{margin: 5,color:'white'}}>Drive Belt Tensions</Text>
 
           <CheckBox
             value={formData.water_leaks}
@@ -59,7 +59,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Water Leaks</Text>
+          <Text style={{margin: 5,color:'white'}}>Water Leaks</Text>
         </View>
 
         <View style={styles.checkboxWrapper}>
@@ -72,7 +72,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>major_oilleaks</Text>
+          <Text style={{margin: 5,color:'white'}}>major_oilleaks</Text>
 
           <CheckBox
             value={formData.tyre_condition}
@@ -83,7 +83,7 @@ const CategeoryB = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Tyre_Condition</Text>
+          <Text style={{margin: 5,color:'white'}}>Tyre_Condition</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -92,11 +92,23 @@ const CategeoryB = ({formData, setformData}) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: 10
+  
   },
   scrollView: {
-    backgroundColor: '#2c2c54',
+    backgroundColor: '#A68F97',
     marginHorizontal: 10,
+    borderRadius:10,
+    padding:5,
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 8,
+},
+shadowOpacity: 0.46,
+shadowRadius: 11.14,
+
+elevation: 17,
   },
   text: {
     fontSize: 42,

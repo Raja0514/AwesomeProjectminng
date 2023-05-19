@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "awesomeproject",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-04-23T16:46:39.463Z"
 }

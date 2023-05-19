@@ -5,7 +5,6 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   View,
 } from 'react-native';
 
@@ -28,7 +27,7 @@ const CategeoryC = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Minor_oil_leaks</Text>
+          <Text style={{margin: 5,color:'white'}}>Minor_oil_leaks</Text>
 
 
           <CheckBox
@@ -42,7 +41,7 @@ const CategeoryC = ({formData, setformData}) => {
             }
           />
 
-          <Text style={{color: 'white', margin: 5}}>Wipers Washers</Text>
+          <Text style={{margin: 5,color:'white'}}>Wipers Washers</Text>
 
         </View>
 
@@ -56,8 +55,23 @@ const CategeoryC = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>First Aid Kit</Text>
+          <Text style={{margin: 5,color:'white'}}>First Aid Kit</Text>
 
+          
+
+         <CheckBox
+            value={formData.damage}
+            onValueChange={value =>
+              setformData({
+                 ...formData,
+                damage: value,
+              })
+            }
+          />
+          <Text style={{margin: 5,color:'white'}}>damage</Text>
+        </View>
+
+        <View style={styles.checkboxWrapper}>
           <CheckBox
             value={formData.vechile_housekeeping}
             onValueChange={value =>
@@ -67,10 +81,8 @@ const CategeoryC = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Vechile Housekeeping</Text>
-        </View>
+          <Text style={{margin: 5,color:'white'}}>Vechile Housekeeping</Text>
 
-        <View style={styles.checkboxWrapper}>
           <CheckBox
             value={formData.air_conditioner}
             onValueChange={value =>
@@ -80,9 +92,13 @@ const CategeoryC = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>Air Conditioner</Text>
+          <Text style={{margin: 5,color:'white'}}>air_conditioner</Text>
 
-          <CheckBox
+
+          
+        </View>
+        <View style={styles.checkboxWrapper}>
+        <CheckBox
             value={formData.fuel_level}
             onValueChange={value =>
               setformData({
@@ -91,7 +107,7 @@ const CategeoryC = ({formData, setformData}) => {
               })
             }
           />
-          <Text style={{color: 'white', margin: 5}}>fuel_level</Text>
+          <Text style={{margin: 5,color:'white'}}>fuel_level</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -100,11 +116,22 @@ const CategeoryC = ({formData, setformData}) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingTop: 10
   },
   scrollView: {
-    backgroundColor: '#2c2c54',
+    backgroundColor: '#A68F97',
     marginHorizontal: 10,
+    borderRadius:10,
+    padding:5,
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 8,
+},
+shadowOpacity: 0.46,
+shadowRadius: 11.14,
+
+elevation: 17,
   },
   text: {
     fontSize: 42,
