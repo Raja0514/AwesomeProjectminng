@@ -8,12 +8,13 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import Prestart1 from './Prestart';
+//import Prestart1 from './Prestart';
 import CategeoryA from './CategeoryA';
 import CategeoryB from './CategeoryB';
 import CategeoryC from './CategeoryC';
 import {Surface} from 'react-native-paper';
 import {DataStore} from 'aws-amplify';
+
 import {Prestart} from '../models/schema';
 
 const CategeoryAfault = {
@@ -63,33 +64,31 @@ const prestart = {
 const Form = () => {
   const [formData, setformData] = useState(prestart);
 
-  console.log(formData)
+  console.log(formData);
 
   const [formData1, setformData1] = useState(CategeoryAfault);
 
-  console.log(formData1)
+  console.log(formData1);
 
   const [formData2, setformData2] = useState(categeoryBfault);
 
-  console.log(formData2)
+  console.log(formData2);
 
   const [formData3, setformData3] = useState(categeoryCfault);
 
-  console.log(formData3)
+  console.log(formData3);
 
   const [screen, setScreen] = useState(0);
 
   const Formtitle = [
-    'Prestart Checklist',
     'Categeory A Faults',
     'Categeory B Faults',
     'Categeory C Faults',
   ];
 
+  async function click() {}
   const Screendisplay = () => {
     if (screen === 0) {
-      return <Prestart1 formData={formData} setformData={setformData} />;
-    } else if (screen === 1) {
       return <CategeoryA formData={formData1} setformData={setformData1} />;
     } else if (screen === 2) {
       return <CategeoryB formData={formData2} setformData={setformData2} />;
@@ -128,7 +127,6 @@ const Form = () => {
                 style={styles.button}
                 onPress={() => {
                   if (screen === Formtitle.length - 1) {
-
                     const value1 = formData.odometerreading;
 
                     const value2 = formData.enginehoursos;
@@ -175,11 +173,11 @@ const Form = () => {
 
                     DataStore.save(
                       new Prestart({
-                        odometerreading: 'test',
-                        enginehoursos:'tetsingapp',
-                        categeoryAfault: 'test1',
-                        categeoryBfault: 'test3',
-                        categeoryCfault: 'tests4',
+                        odometerreading: value1,
+                        enginehoursos: value2,
+                        categeoryAfault: data.check,
+                        categeoryBfault: data1.check,
+                        categeoryCfault: data2.check,
                       }),
                     );
 
@@ -250,11 +248,7 @@ const Form = () => {
                     // console.log(Object.values(formData3).map(element => !element));
 
                     Alert.alert('Pre Start Checklist submitted....');
-                    
-                  }
-                  
-                  
-                  else {
+                  } else {
                     setScreen(currentscreen => currentscreen + 1);
                   }
                 }}>
@@ -287,7 +281,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     color: 'white',
-    backgroundColor: '#7A577A',
+    backgroundColor: '#012E40',
     paddingVertical: 15,
     paddingHorizontal: 35,
     marginLeft: 20,

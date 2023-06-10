@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Pressable,StyleSheet} from 'react-native';
+import {View, Pressable, StyleSheet} from 'react-native';
 
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 
@@ -30,13 +30,26 @@ import App8 from './src/pages/App8';
 
 import App9 from './src/pages/App9';
 
+import App10 from './src/pages/App10';
+
+import App11 from './src/pages/App11';
+
+import App12 from './src/pages/App12';
+
+import App13 from './src/pages/App13';
+
+import App14 from './src/pages/App14';
+
+import App15 from './src/pages/App15';
+
+import App16 from './src/pages/App16';
+
 import {useTheme, Text} from 'react-native-paper';
 
 import {
   withAuthenticator,
   useAuthenticator,
 } from '@aws-amplify/ui-react-native';
-
 
 const Tab = createBottomTabNavigator();
 
@@ -61,7 +74,7 @@ const Home = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#5C7373',
+        backgroundColor: '#040f13',
       }}>
       <Text variant="headlineLarge" style={{color: 'white'}}>
         Profile
@@ -108,21 +121,22 @@ function Tabstack() {
       screenOptions={{
         tabBarLabelStyle: {color: 'white'},
 
-        tabBarStyle: {backgroundColor: '#7A577A'},
+        tabBarStyle: {backgroundColor: '#042940'},
 
         tabBarScrollEnabled: true,
         tabBarItemStyle: {fontSize: 15},
       }}>
       <Tab.Screen
+        name="truckplod"
+        component={App1}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
         name="Prestart"
         component={Multistep}
         options={{headerShown: false}}
       />
-      <Tab.Screen
-        name="metsplod"
-        component={App1}
-        options={{headerShown: false}}
-      />
+
       <Tab.Screen
         name="location"
         component={App2}
@@ -133,9 +147,43 @@ function Tabstack() {
         component={App3}
         options={{headerShown: false}}
       />
+
+      <Tab.Screen
+        name="activity sheet"
+        component={App10}
+        options={{headerShown: false}}
+      />
+
+      <Tab.Screen
+        name="Jumpo plod"
+        component={App12}
+        options={{headerShown: false}}
+      />
+
+      <Tab.Screen
+        name="Prestart jumpo"
+        component={Multistep}
+        options={{headerShown: false}}
+      />
       <Tab.Screen
         name="developement Drilling"
         component={App4}
+        options={{headerShown: false}}
+      />
+
+      <Tab.Screen
+        name="under ground support"
+        component={App13}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="under Face Drilling"
+        component={App14}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="consummbles"
+        component={App11}
         options={{headerShown: false}}
       />
       <Tab.Screen name="Bits" component={App5} options={{headerShown: false}} />
@@ -160,6 +208,16 @@ function Tabstack() {
         component={App9}
         options={{headerShown: false}}
       />
+      <Tab.Screen
+        name="Shift Summary"
+        component={App15}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="End shift"
+        component={App16}
+        options={{headerShown: false}}
+      />
     </TopTab.Navigator>
   );
 }
@@ -167,16 +225,15 @@ function Tabstack() {
 // retrieves only the current value of 'user' from 'useAuthenticator'
 
 const App = () => {
-
   const userSelector = context => [context.user];
 
-const {user, signOut} = useAuthenticator(userSelector);
+  const {user, signOut} = useAuthenticator(userSelector);
 
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerStyle: {backgroundColor: '#7A577A'},
+          headerStyle: {backgroundColor: '#042940'},
           headerTintColor: 'white',
           headerTitleStyle: {fontWeight: 'bold'},
         }}>
@@ -184,12 +241,10 @@ const {user, signOut} = useAuthenticator(userSelector);
           name="TabStack"
           component={Tabstack}
           options={{
-            title: 'Live Mining',
+            title: 'Mining App',
             headerRight: () => (
-              <Pressable onPress={signOut}  style={styles.buttonContainer}>
-                <Text style={styles.buttonText}>
-                  Hello, {user.username}! Click here to sign out!
-                </Text>
+              <Pressable onPress={signOut} style={styles.buttonContainer}>
+                <Text style={styles.buttonText}>Logout</Text>
               </Pressable>
             ),
           }}
@@ -369,7 +424,6 @@ export default withAuthenticator(App);
 // };
 // //const contactText = {margin: 0, padding: 9, fontSize: 20};
 
-
 const styles = StyleSheet.create({
   container: {width: 400, flex: 1, padding: 20, alignSelf: 'center'},
   todo: {marginBottom: 15},
@@ -377,8 +431,9 @@ const styles = StyleSheet.create({
   todoName: {fontSize: 20, fontWeight: 'bold'},
   buttonContainer: {
     alignSelf: 'center',
-    backgroundColor: '#38184C',
+    backgroundColor: 'grey',
     paddingHorizontal: 8,
+    borderRadius: 10,
   },
   buttonText: {color: 'white', padding: 5, fontSize: 12},
 });

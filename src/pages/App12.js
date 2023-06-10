@@ -5,7 +5,7 @@ import DropDown from 'react-native-paper-dropdown';
 import {DataStore} from 'aws-amplify';
 import {Metstruckplod} from '../models';
 
-const App1 = () => {
+const App12 = () => {
 
   const [showDropDown, setShowDropDown] = useState(false);
 
@@ -271,7 +271,7 @@ const App1 = () => {
   );
 };
 
-export default App1;
+export default App12;
 
 const styles = StyleSheet.create({
   containerStyle: {

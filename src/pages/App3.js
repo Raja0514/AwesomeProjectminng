@@ -35,10 +35,9 @@ const App3 = () => {
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#A68F97',
-          margin: 10,
+     alignItems: 'center',
+          backgroundColor: '#012E40',
+          margin: 5,
           borderRadius: 10,
           shadowColor: '#000',
           shadowOffset: {
@@ -50,19 +49,9 @@ const App3 = () => {
 
           elevation: 17,
         }}>
-        <Text
-          style={{
-            textAlign: 'center',
-            marginBottom: 30,
-            fontSize: 29,
-            color: 'white',
-          }}>
-          Loads: {counter}
-        </Text>
-
-        <View>
-          <Button
-            style={{marginBottom: 20, padding: 5, backgroundColor: '#7A577A'}}
+        <View style={{flex: 1, justifyContent: 'center'}}>
+        <Button
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
             labelStyle={{
               fontSize: 20,
               color: 'white',
@@ -73,7 +62,45 @@ const App3 = () => {
             onPress={() => {
               setCounter(counter + 1);
             }}>
-            +
+            Travel
+          </Button>
+          <Button
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
+            labelStyle={{
+              fontSize: 20,
+              color: 'white',
+              textAlign: 'center',
+              padding: 5,
+            }}
+            mode="contained"
+            onPress={() => {
+              setCounter(counter + 1);
+            }}>
+            Queue
+          </Button>
+          {/* <Text
+          style={{
+            textAlign: 'center',
+            marginBottom: 30,
+            fontSize: 29,
+            color: 'white',
+          }}>
+          Loads: {counter}
+        </Text> */}
+
+          <Button
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
+            labelStyle={{
+              fontSize: 20,
+              color: 'white',
+              textAlign: 'center',
+              padding: 5,
+            }}
+            mode="contained"
+            onPress={() => {
+              setCounter(counter + 1);
+            }}>
+            Load
           </Button>
 
           <Button
@@ -83,15 +110,15 @@ const App3 = () => {
               textAlign: 'center',
               padding: 5,
             }}
-            style={{marginBottom: 20, padding: 5, backgroundColor: '#7A577A'}}
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
             mode="contained"
             onPress={() => {
               setCounter(0);
             }}>
-            Reset
+            Haul
           </Button>
           <Button
-            style={{marginBottom: 10, padding: 5, backgroundColor: '#7A577A'}}
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
             labelStyle={{
               fontSize: 20,
               color: 'white',
@@ -102,19 +129,19 @@ const App3 = () => {
             onPress={() => {
               if (counter > 0) setCounter(counter - 1);
             }}>
-            -
+            Dump
           </Button>
           <Button
-            style={{margin: 10, padding: 5, backgroundColor: '#7A577A'}}
+            style={{marginBottom: 20, padding: 5, backgroundColor: '#1D7373'}}
             labelStyle={{
               fontSize: 20,
-
+              color: 'white',
               textAlign: 'center',
-              padding: 10,
+              padding: 5,
             }}
             mode="contained"
             onPress={onClick}>
-            synchronization
+            Activity
           </Button>
         </View>
       </View>

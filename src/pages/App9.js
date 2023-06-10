@@ -156,7 +156,7 @@ const App9 = () => {
             textColor={'black'}
             onPress={onClick}
             style={{margin: 10, padding: 5, backgroundColor: 'white'}}>
-            synchronization
+            sync
           </Button>
           <View style={styles.spacerStyle} />
         </ScrollView>
@@ -170,7 +170,7 @@ export default App9;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#A68F97',
+    backgroundColor: '#012E40',
     justifyContent: 'center',
     margin: 10,
     padding: 10,

@@ -1,7 +1,4 @@
-import {
-  Surface,
-  Button,
-} from 'react-native-paper';
+import {Surface, Button} from 'react-native-paper';
 
 import React, {useState} from 'react';
 
@@ -13,8 +10,8 @@ import {DataStore} from 'aws-amplify';
 
 import {Loadinglocatins} from '../models';
 
-
 const App2 = () => {
+
   const [showDropDown, setShowDropDown] = useState(false);
 
   const [showDropDown1, setShowDropDown1] = useState(false);
@@ -26,6 +23,14 @@ const App2 = () => {
   const [showDropDown4, setShowDropDown4] = useState(false);
 
   const [showDropDown5, setShowDropDown5] = useState(false);
+
+  const [showDropDown6, setShowDropDown6] = useState(false);
+
+  const [showDropDown7, setShowDropDown7] = useState(false);
+
+  const [loader,setloader]=useState('')
+
+  const[act,setact]=useState('');
 
   const [location, setLocation] = useState('');
 
@@ -96,6 +101,30 @@ const App2 = () => {
     {label: 'Low grade', value: 'low grade'},
   ];
 
+  const activity = [
+    {
+      label: 'Hauling',
+      value: 'Hauling',
+    },
+    {
+      label: 'Hauling1',
+      value: 'Hauling1',
+    },
+   
+  ];
+
+  const loaderlist = [
+    {
+      label: 'loader1',
+      value: 'loader1',
+    },
+    {
+      label: 'loader2',
+      value: 'loader2',
+    },
+   
+  ];
+
   // const insertvalue = () => {
   //   return Alert.alert('Loading Locations Submitted.....');
   // };
@@ -110,13 +139,12 @@ const App2 = () => {
   async function onClick() {
     const check = await DataStore.save(
       new Loadinglocatins({
-        fromlocation:location,
+        fromlocation: location,
         development: sd,
-        loadinglocation:loading,
-        fromstockpile:stockpile,
-        toromfinger:romfinger,
-        bog:material,
-        
+        loadinglocation: loading,
+        fromstockpile: stockpile,
+        toromfinger: romfinger,
+        bog: material,
       }),
     );
 
@@ -130,13 +158,11 @@ const App2 = () => {
     setStockpile('');
     setRomfinger('');
     setMaterial('');
-    
   }
-
 
   return (
     <Surface style={styles.containerStyle}>
-      <SafeAreaView >
+      <SafeAreaView>
         <ScrollView>
           <DropDown
             label={'From Location'}
@@ -159,6 +185,17 @@ const App2 = () => {
             value={sd}
             setValue={setsd}
             list={sdevelopment}
+          />
+          <View style={styles.spacerStyle} />
+          <DropDown
+            label={'Actvity Type'}
+            mode={'outlined'}
+            visible={showDropDown6}
+            showDropDown={() => setShowDropDown6(true)}
+            onDismiss={() => setShowDropDown6(false)}
+            value={act}
+            setValue={setact}
+            list={activity}
           />
 
           <View style={styles.spacerStyle} />
@@ -208,19 +245,29 @@ const App2 = () => {
           />
 
           <View style={styles.spacerStyle} />
+          <DropDown
+            label={'Loader ID'}
+            mode={'outlined'}
+            visible={showDropDown7}
+            showDropDown={() => setShowDropDown7(true)}
+            onDismiss={() => setShowDropDown7(false)}
+            value={loader}
+            setValue={setloader}
+            list={loaderlist}
+          />
+
+          <View style={styles.spacerStyle} />
           <View style={styles.spacerStyle} />
 
           <Button
             mode="outlined"
             uppercase="true"
             textColor={'black'}
-            
             style={{margin: 10, padding: 5, backgroundColor: 'white'}}
             onPress={onClick}>
-            synchronization
+            sync
           </Button>
           <View style={styles.spacerStyle} />
-          
         </ScrollView>
       </SafeAreaView>
     </Surface>
@@ -232,25 +279,23 @@ export default App2;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#A68F97',
+    backgroundColor: '#012E40',
     justifyContent: 'center',
-    margin:10,
+    margin: 10,
     padding: 10,
-    borderRadius:10,
-    shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 8,
-},
-shadowOpacity: 0.46,
-shadowRadius: 11.14,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
 
-elevation: 17,
+    elevation: 17,
   },
 
   spacerStyle: {
     marginBottom: 15,
   },
-
-  
 });

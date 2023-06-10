@@ -10,9 +10,7 @@ import {DataStore} from 'aws-amplify';
 
 import {Couplings} from '../models';
 
-
-const App8 = () => {
-    
+const App8 = ({navigation:{goBack}}) => {
   const [showDropDown1, setShowDropDown1] = useState(false);
 
   const [showDropDown2, setShowDropDown2] = useState(false);
@@ -159,8 +157,13 @@ const App8 = () => {
             textColor={'black'}
             onPress={onClick}
             style={{margin: 10, padding: 5, backgroundColor: 'white'}}>
-            synchronization
+            sync
           </Button>
+          <Button
+              onPress={() => goBack()}
+              mode='outlined'
+            >back to consumables</Button>
+          
           <View style={styles.spacerStyle} />
         </ScrollView>
       </SafeAreaView>
@@ -173,7 +176,7 @@ export default App8;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#A68F97',
+    backgroundColor: '#012E40',
     justifyContent: 'center',
     margin: 10,
     padding: 10,

@@ -333,7 +333,7 @@ const App4 = () => {
               textColor={'black'}
               onPress={onClick}
               uppercase={true}>
-              synchronization
+              sync
             </Button>
           </ScrollView>
         </SafeAreaView>
@@ -347,7 +347,7 @@ export default App4;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#A68F97',
+    backgroundColor: '#012E40',
     justifyContent: 'center',
     margin: 10,
     borderRadius: 10,
